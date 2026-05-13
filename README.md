@@ -1,64 +1,128 @@
-# Cyber Attack Detection on Smart Grids
+# Cyberattack Detection on Smart Grids
 
-Intrusion detection and analysis pipeline for IEC 60870-5-104 smart-grid traffic using feature engineering, model benchmarking, and adversarial robustness checks.
+An intrusion-detection and analysis pipeline for smart-grid communication traffic, focused on IEC 60870-5-104 / IEC-104 network data, supervised attack classification, feature analysis, and model benchmarking.
 
-## Paper Context
+This repository represents the engineering side of a research-oriented project on securing critical power-grid communication systems.
 
-This work is related to the IEEE reference: [https://ieeexplore.ieee.org/document/11083563](https://ieeexplore.ieee.org/document/11083563)
+---
 
-## Project Scope
+## Problem statement
 
-This repository focuses on end-to-end cyberattack analysis for smart-grid communications:
+Smart grids depend on communication protocols that connect substations, control centers, and field devices. If malicious traffic is not detected early, attacks can affect grid monitoring, control decisions, and operational reliability.
 
-- Traffic and feature analysis from IEC-104 network captures.
-- Supervised attack detection with multiple model families.
-- Ensemble and ablation experiments.
-- Explainability and robustness-oriented evaluations.
+This project builds a machine-learning pipeline to classify normal and attack traffic patterns from smart-grid communication data.
 
-## Repository Layout
+---
+
+## What this project covers
+
+- IEC-104 smart-grid traffic analysis
+- preprocessing and feature engineering
+- supervised attack detection
+- baseline model comparison
+- ensemble evaluation
+- confusion-matrix and metric generation
+- publication-oriented plots and result artifacts
+
+---
+
+## Pipeline
 
 ```text
-.
-|- README.md
-|- ids.py / ids1.py / honey*.py (security and analysis scripts)
-|- results/ (automated analysis outputs)
-|- IEEE_Plots/ (visualization for publications)
-|- Graphs/ (exploratory data analysis)
-|- docs/ (architecture and screenshots)
+Raw IEC-104 Traffic / Logs
+          ↓
+Preprocessing + Cleaning
+          ↓
+Feature Engineering
+          ↓
+Model Training
+          ↓
+Evaluation + Explainability
+          ↓
+Result Tables, Plots, and Reports
 ```
 
-## Architecture
+---
 
-The pipeline consists of the following stages:
-1. **Data Acquisition**: IEC-104 traffic and logs.
-2. **Preprocessing**: Data cleaning and normalization.
-3. **Feature Engineering**: Selecting and transforming relevant features.
-4. **Model Training**: Benchmarking Decision Trees, Random Forests, SVM, and KNN.
-5. **Evaluation**: Generating confusion matrices, metrics, and ablation studies.
-
-## Problem Statement
-
-Smart-grid communication protocols are vulnerable to cyberattacks that can disrupt critical infrastructure. The goal is to detect malicious traffic patterns reliably while handling large-scale and noisy data.
-
-## Benchmark Results
+## Model benchmarks
 
 | Model | Accuracy | Notes |
-| --- | --- | --- |
-| Decision Tree | 91.16% | Fast training and inference |
-| Random Forest | 91.66% | Robust performance baseline |
-| SVM | 76.65% | Sensitive to high dimensionality |
-| KNN | 76.65% | Memory-intensive evaluation |
-| Ensemble | 91.81% | Optimal overall performance |
+|---|---:|---|
+| Decision Tree | 91.16% | Fast and interpretable baseline |
+| Random Forest | 91.66% | Strong classical ML baseline |
+| SVM | 76.65% | Sensitive to feature scaling and dimensionality |
+| KNN | 76.65% | Simple but memory-heavy for larger traffic data |
+| Ensemble | 91.81% | Best overall benchmark in this repo |
 
-## How To Run
+---
 
-1. Prepare the dataset paths in the relevant script.
-2. Run preprocessing and feature analysis.
-3. Train baseline models using the `ids.py` or `ids1.py` scripts.
-4. Execute evaluation and ablation scripts to generate results.
+## Repository structure
 
-## Future Work
+```text
+cyberattack-on-smart-grids/
+├── ids.py / ids1.py        # IDS model training and analysis scripts
+├── honey*.py               # security and honeypot-related experiments
+├── results/                # generated outputs and analysis results
+├── IEEE_Plots/             # publication-style visualizations
+├── Graphs/                 # exploratory data-analysis plots
+├── docs/                   # architecture notes and screenshots
+└── README.md
+```
 
-- Integration of a unified orchestration pipeline.
-- Enhanced configuration for training/validation/test splits.
-- Implementation of advanced anomaly-focused metrics.
+---
+
+## How to run
+
+1. Clone the repository.
+
+```bash
+git clone https://github.com/Mrudula-itsjuzme/cyberattack-on-smart-grids.git
+cd cyberattack-on-smart-grids
+```
+
+2. Install the required Python libraries used by the scripts.
+
+```bash
+pip install pandas numpy scikit-learn matplotlib seaborn
+```
+
+3. Update dataset paths inside the relevant scripts.
+
+4. Run a training or evaluation script.
+
+```bash
+python ids.py
+```
+
+5. Check generated metrics, plots, and outputs under the result folders.
+
+---
+
+## Paper context
+
+This work is connected to a smart-grid cybersecurity research direction and references the IEEE paper available here:
+
+- https://ieeexplore.ieee.org/document/11083563
+
+---
+
+## Tech stack
+
+- Python
+- Pandas / NumPy
+- Scikit-learn
+- Matplotlib / Seaborn
+- Classical ML models
+- Smart-grid / IEC-104 traffic analysis
+
+---
+
+## Current status
+
+Research/prototype implementation. The repository contains multiple experiment scripts and result artifacts. The next improvement would be consolidating the scripts into a single configurable training pipeline with cleaner dataset-path management.
+
+---
+
+## Author
+
+Built by [Pedamallu Sai Mrudula](https://github.com/Mrudula-itsjuzme) as part of an applied AI, cybersecurity, and smart-grid analytics portfolio.
