@@ -6,6 +6,19 @@ This repository represents the engineering side of a research-oriented project o
 
 ---
 
+## Project links and evidence
+
+| Item | Link / Note |
+|---|---|
+| Repository | https://github.com/Mrudula-itsjuzme/cyberattack-on-smart-grids |
+| Paper / reference | https://ieeexplore.ieee.org/document/11083563 |
+| Demo video | Not uploaded yet |
+| Deployment | Not applicable; research/ML pipeline |
+| Dataset note | Uses IEC-104 / smart-grid traffic data. Dataset paths must be configured locally before running scripts. |
+| Result screenshots / plots | Check `results/`, `IEEE_Plots/`, `Graphs/`, and `docs/` for generated metrics, plots, and visual artifacts. |
+
+---
+
 ## Problem statement
 
 Smart grids depend on communication protocols that connect substations, control centers, and field devices. If malicious traffic is not detected early, attacks can affect grid monitoring, control decisions, and operational reliability.
